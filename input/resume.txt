@@ -1,0 +1,23 @@
+Swathi K
+
+Software Engineer
+
+Email: swathi.k@gmail.com
+
+Phone: 9876543210
+
+Skills
+Python
+Java
+SQL
+Git
+Docker
+
+Experience
+TCS
+Software Engineer
+January 2023 - Present
+
+Education
+B.Tech Computer Science
+CMR Technical Campus
