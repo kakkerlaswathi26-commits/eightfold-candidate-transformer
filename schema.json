@@ -1,6 +1,9 @@
 {
   "type": "object",
   "properties": {
+    "candidate_id": {
+    "type": "string"
+    },
     "full_name": {
       "type": "string"
     },

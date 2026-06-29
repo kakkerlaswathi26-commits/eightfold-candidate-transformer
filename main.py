@@ -36,6 +36,8 @@ def main():
 
     final_profiles = []
 
+    candidate_counter = 1
+
     config = load_config("config/default.json")
 
     schema_path = os.path.join(
@@ -58,6 +60,9 @@ def main():
             merged,
             config
         )
+
+        projected["candidate_id"] = f"C{candidate_counter:03d}"
+        candidate_counter += 1
 
         if validate_candidate(projected, schema_path):
 
