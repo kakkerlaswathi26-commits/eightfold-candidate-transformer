@@ -19,11 +19,19 @@ def normalize_phone(phone):
 
 
 def normalize_skill(skill):
-    """
-    Standardize skill names.
-    """
+    skill = skill.strip()
 
-    return skill.strip().title()
+    special_skills = {
+        "sql": "SQL",
+        "html": "HTML",
+        "css": "CSS",
+        "javascript": "JavaScript"
+    }
+
+    if skill.lower() in special_skills:
+        return special_skills[skill.lower()]
+
+    return skill.title()
 
 
 def normalize_candidate(candidate):
