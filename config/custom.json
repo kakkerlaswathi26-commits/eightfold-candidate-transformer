@@ -1,13 +1,13 @@
 {
     "fields": [
+        "candidate_id",
         "full_name",
-        "email",
-        "skills"
+        "emails",
+        "phones",
+        "skills",
+        "overall_confidence"
     ],
-
-    "include_confidence": false,
-
+    "include_confidence": true,
     "include_provenance": false,
-
-    "on_missing": null
+    "on_missing": "N/A"
 }

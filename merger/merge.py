@@ -1,28 +1,74 @@
 def merge_candidate(csv_data, resume_data):
     """
-    Merge candidate data from CSV and Resume.
+    Merge candidate information from CSV and Resume.
+    Also stores confidence and provenance information.
     """
 
     merged = {}
 
-    # Copy CSV fields
-    merged.update(csv_data)
+    # Candidate basic details
+    merged["full_name"] = csv_data.get("full_name")
 
-    # Add Resume fields if they don't exist
-    for key, value in resume_data.items():
+    merged["emails"] = [
+        csv_data["email"]
+    ] if csv_data.get("email") else []
 
-        if key == "skills":
+    merged["phones"] = [
+        csv_data["phone"]
+    ] if csv_data.get("phone") else []
 
-            csv_skills = merged.get("skills", [])
+    merged["company"] = csv_data.get("company")
 
-            merged["skills"] = list(
-                set(csv_skills + value)
-            )
+    merged["title"] = csv_data.get("title")
 
-        else:
+    # Skills with confidence
+    merged["skills"] = []
 
-            if value:
-                merged[key] = value
+    for skill in resume_data.get("skills", []):
+
+        merged["skills"].append({
+            "name": skill,
+            "confidence": 0.95,
+            "sources": ["resume"]
+        })
+
+    # Provenance
+    merged["provenance"] = [
+
+        {
+            "field": "full_name",
+            "source": "csv"
+        },
+
+        {
+            "field": "emails",
+            "source": "csv"
+        },
+
+        {
+            "field": "phones",
+            "source": "csv"
+        },
+
+        {
+            "field": "company",
+            "source": "csv"
+        },
+
+        {
+            "field": "title",
+            "source": "csv"
+        },
+
+        {
+            "field": "skills",
+            "source": "resume"
+        }
+
+    ]
+
+    # Overall confidence
+    merged["overall_confidence"] = 0.95
 
     return merged
 
@@ -47,9 +93,4 @@ if __name__ == "__main__":
         ]
     }
 
-    result = merge_candidate(
-        csv_candidate,
-        resume_candidate
-    )
-
-    print(result)
+    print(merge_candidate(csv_candidate, resume_candidate))

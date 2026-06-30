@@ -2,16 +2,22 @@
   "type": "object",
   "properties": {
     "candidate_id": {
-    "type": "string"
+      "type": "string"
     },
     "full_name": {
       "type": "string"
     },
-    "email": {
-      "type": "string"
+    "emails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
-    "phone": {
-      "type": "string"
+    "phones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "company": {
       "type": "string"
@@ -22,13 +28,56 @@
     "skills": {
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "confidence",
+          "sources"
+        ]
       }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "field",
+          "source"
+        ]
+      }
+    },
+    "overall_confidence": {
+      "type": "number"
     }
   },
   "required": [
+    "candidate_id",
     "full_name",
-    "email",
-    "phone"
+    "emails",
+    "phones",
+    "skills",
+    "overall_confidence"
   ]
 }

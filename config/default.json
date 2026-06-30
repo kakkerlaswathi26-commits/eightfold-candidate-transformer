@@ -1,11 +1,13 @@
 {
     "fields": [
         "full_name",
-        "email",
-        "phone",
+        "emails",
+        "phones",
         "company",
         "title",
-        "skills"
+        "skills",
+        "provenance",
+        "overall_confidence"
     ],
 
     "include_confidence": true,

@@ -1,50 +1,92 @@
+import os
 import re
+from PyPDF2 import PdfReader
 
 
-def read_resume(file_path):
+KNOWN_SKILLS = [
+    "Python",
+    "Java",
+    "SQL",
+    "Docker",
+    "Git",
+    "HTML",
+    "CSS",
+    "JavaScript"
+]
+
+
+def extract_resume(pdf_path):
     """
-    Reads a resume text file and extracts candidate information.
+    Extract information from a single PDF resume.
     """
 
-    with open(file_path, "r", encoding="utf-8") as file:
-        text = file.read()
+    reader = PdfReader(pdf_path)
 
-    # Extract email
-    email = re.search(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", text)
-    email = email.group() if email else None
+    text = ""
 
-    # Extract phone
-    phone = re.search(r"\b\d{10}\b", text)
-    phone = phone.group() if phone else None
+    for page in reader.pages:
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text + "\n"
 
-    # Extract skills
-    known_skills = [
-        "Python",
-        "Java",
-        "SQL",
-        "Docker",
-        "Git",
-        "HTML",
-        "CSS",
-        "JavaScript"
-    ]
+    # Name (first non-empty line)
+    lines = [line.strip() for line in text.split("\n") if line.strip()]
+    full_name = lines[0] if lines else ""
 
+    # Email
+    email_match = re.search(
+        r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
+        text
+    )
+
+    email = email_match.group() if email_match else None
+
+    # Phone
+    phone_match = re.search(
+        r"\+?\d[\d\s-]{9,15}",
+        text
+    )
+
+    phone = phone_match.group().strip() if phone_match else None
+
+    # Skills
     skills = []
 
-    for skill in known_skills:
+    for skill in KNOWN_SKILLS:
         if skill.lower() in text.lower():
             skills.append(skill)
 
-    candidate = {
+    return {
+        "full_name": full_name,
         "email": email,
         "phone": phone,
         "skills": skills
     }
 
-    return candidate
+
+def read_all_resumes(folder_path):
+    """
+    Read every PDF inside the resumes folder.
+    """
+
+    resumes = []
+
+    for file in os.listdir(folder_path):
+
+        if file.lower().endswith(".pdf"):
+
+            pdf_path = os.path.join(folder_path, file)
+
+            resumes.append(
+                extract_resume(pdf_path)
+            )
+
+    return resumes
 
 
 if __name__ == "__main__":
-    data = read_resume("input/resume.txt")
 
-    print(data)
+    resumes = read_all_resumes("input/resumes")
+
+    for resume in resumes:
+        print(resume)
