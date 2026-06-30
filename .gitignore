@@ -1,4 +1,4 @@
-# Python
+# Python cache
 __pycache__/
 *.py[cod]
 
@@ -6,12 +6,12 @@ __pycache__/
 venv/
 .env
 
-# Output files
-output/*.json
-
-# VS Code
+# VS Code settings
 .vscode/
 
 # OS files
 .DS_Store
 Thumbs.db
+
+# Generated output (uncomment if you don't want to commit sample output)
+# output/profile.json
