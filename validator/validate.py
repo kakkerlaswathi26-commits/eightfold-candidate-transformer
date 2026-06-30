@@ -27,18 +27,35 @@ if __name__ == "__main__":
 
     # Sample candidate data
     sample_candidate = {
+        "candidate_id": "C001",
         "full_name": "Swathi K",
-        "email": "swathi.k@gmail.com",
-        "phone": "+919876543210",
+        "emails": [
+            "swathi.k@gmail.com"
+        ],
+        "phones": [
+            "+919876543210"
+        ],
         "company": "TCS",
         "title": "Software Engineer",
         "skills": [
-            "Python",
-            "Java",
-            "SQL",
-            "Docker",
-            "Git"
-        ]
+            {
+                "name": "Python",
+                "confidence": 0.95,
+                "sources": ["resume"]
+            },
+            {
+                "name": "Java",
+                "confidence": 0.95,
+                "sources": ["resume"]
+            }
+        ],
+        "provenance": [
+            {
+                "field": "emails",
+                "source": "csv"
+            }
+        ],
+        "overall_confidence": 0.95
     }
 
     # Get path to schema.json
