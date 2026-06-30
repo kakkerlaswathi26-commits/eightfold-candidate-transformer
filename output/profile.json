@@ -1,6 +1,5 @@
 [
     {
-        "candidate_id": "C001",
         "full_name": "Swathi K",
         "emails": [
             "swathi.k@gmail.com"
@@ -8,6 +7,8 @@
         "phones": [
             "+919876543210"
         ],
+        "company": "TCS",
+        "title": "Software Engineer",
         "skills": [
             {
                 "name": "Python",
@@ -45,10 +46,36 @@
                 ]
             }
         ],
-        "overall_confidence": 0.95
+        "provenance": [
+            {
+                "field": "full_name",
+                "source": "csv"
+            },
+            {
+                "field": "emails",
+                "source": "csv"
+            },
+            {
+                "field": "phones",
+                "source": "csv"
+            },
+            {
+                "field": "company",
+                "source": "csv"
+            },
+            {
+                "field": "title",
+                "source": "csv"
+            },
+            {
+                "field": "skills",
+                "source": "resume"
+            }
+        ],
+        "overall_confidence": 0.95,
+        "candidate_id": "C001"
     },
     {
-        "candidate_id": "C002",
         "full_name": "Aishu R",
         "emails": [
             "aishu.r@gmail.com"
@@ -56,6 +83,8 @@
         "phones": [
             "+919123456780"
         ],
+        "company": "Infosys",
+        "title": "Data Analyst",
         "skills": [
             {
                 "name": "Python",
@@ -93,10 +122,36 @@
                 ]
             }
         ],
-        "overall_confidence": 0.95
+        "provenance": [
+            {
+                "field": "full_name",
+                "source": "csv"
+            },
+            {
+                "field": "emails",
+                "source": "csv"
+            },
+            {
+                "field": "phones",
+                "source": "csv"
+            },
+            {
+                "field": "company",
+                "source": "csv"
+            },
+            {
+                "field": "title",
+                "source": "csv"
+            },
+            {
+                "field": "skills",
+                "source": "resume"
+            }
+        ],
+        "overall_confidence": 0.95,
+        "candidate_id": "C002"
     },
     {
-        "candidate_id": "C003",
         "full_name": "Priya S",
         "emails": [
             "priya.s@gmail.com"
@@ -104,6 +159,8 @@
         "phones": [
             "+919988776655"
         ],
+        "company": "Accenture",
+        "title": "Backend Developer",
         "skills": [
             {
                 "name": "Python",
@@ -141,10 +198,36 @@
                 ]
             }
         ],
-        "overall_confidence": 0.95
+        "provenance": [
+            {
+                "field": "full_name",
+                "source": "csv"
+            },
+            {
+                "field": "emails",
+                "source": "csv"
+            },
+            {
+                "field": "phones",
+                "source": "csv"
+            },
+            {
+                "field": "company",
+                "source": "csv"
+            },
+            {
+                "field": "title",
+                "source": "csv"
+            },
+            {
+                "field": "skills",
+                "source": "resume"
+            }
+        ],
+        "overall_confidence": 0.95,
+        "candidate_id": "C003"
     },
     {
-        "candidate_id": "C004",
         "full_name": "Indhu P",
         "emails": [
             "indhu.p@gmail.com"
@@ -152,6 +235,8 @@
         "phones": [
             "+919012345678"
         ],
+        "company": "Wipro",
+        "title": "Cloud Engineer",
         "skills": [
             {
                 "name": "Python",
@@ -189,6 +274,33 @@
                 ]
             }
         ],
-        "overall_confidence": 0.95
+        "provenance": [
+            {
+                "field": "full_name",
+                "source": "csv"
+            },
+            {
+                "field": "emails",
+                "source": "csv"
+            },
+            {
+                "field": "phones",
+                "source": "csv"
+            },
+            {
+                "field": "company",
+                "source": "csv"
+            },
+            {
+                "field": "title",
+                "source": "csv"
+            },
+            {
+                "field": "skills",
+                "source": "resume"
+            }
+        ],
+        "overall_confidence": 0.95,
+        "candidate_id": "C004"
     }
 ]
